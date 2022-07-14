@@ -10,9 +10,17 @@ from xml.etree.ElementPath import find
 election_data=[]
 sum=0
 tvotes=0
-candi=0
+
 row=[]
-candidates = ["Charles Casper Stockham", "Diana DeGette", "Raymon Anthony Doane"]
+# Candidates
+candidates = []
+candivotes = {}
+candiops = []
+#winning candidate
+wincandi=""
+wincount = 0
+winpercent = 0
+
 
 #Find electiondata.csv
 election_data = os.path.join("..","Resources","election_data.csv")
@@ -24,12 +32,13 @@ with open(election_data) as csvfile:
     for row in csvreader:
         print(row)
     #Total Votes
-        tvotes +=1
+        tvotes = tvotes +1
         sum +=int(row[0])
-        print("Total Votes Are_", tvotes)
-        len(candidates)
-    # Complete List of Candidates
-    # https://www.geeksforgeeks.org/python-count-occurrences-element-list/
+        # print(Total Votes Are_, [tvotes])
+        candidates=row[2]
+        if candidates not in candiops:
+            candiops.append(candidates)
+            candivotes[candidates]=0 
 
 
 # declaring the list
@@ -84,7 +93,7 @@ with open(election_data) as csvfile:
     #winner of popular vote
 print ("Election Results")
 print ("------------------------")
-print (""Total Votes:" [tvotes]"")
+print ("Total Votes:_" & tvotes)
 print ("-------------------------")
 # print (f{candidate1}":"csstotalper", "csstotal")
 # print (f{candidate2}":" "degtotalper","degtotal")

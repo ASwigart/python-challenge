@@ -43,19 +43,17 @@ with open(file_to_load) as file:
         Netchange+=[change]
         # print("Netchange_list")
         months+=[row[0]]
+#The greatest decrease in profits (date and amount) over the entire period
         if change > Increasedpandl[0]:
             Increasedpandl[1]=row[0]
             Increasedpandl[0]=change
+#Greatest Decrease, find column 2 min value and find assoicated col 1 date, print both
         if change < Decreasepandl[0]:
             Decreasepandl[1]=row[0]
             Decreasepandl[0]=change    
 Avg=sum(Netchange)/len(Netchange)
 
-        
-
-
-#The greatest decrease in profits (date and amount) over the entire period
-    #Greatest Decrease, find column 2 min value and find assoicated col 1 date, print both
+  
 
 print ("Financial Analysis")
 print ("---------------------------------")
